@@ -1638,7 +1638,6 @@ body {
     .hero-widget-image {
         max-width: 400px;
         justify-self: center;
-        order: -1;
         margin-top: var(--spacing-lg);
     }
 
@@ -1755,7 +1754,6 @@ body {
     .hero-text-section {
         max-width: none;
         width: 100%;
-        order: 2;
         margin-top: var(--spacing-xl);
     }
     
@@ -1785,7 +1783,6 @@ body {
     .hero-widget-image {
         max-width: 300px;
         opacity: 0.8;
-        order: -1;
         margin-top: var(--spacing-xl);
     }
     

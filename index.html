@@ -21,6 +21,7 @@
             </div>
             <div class="nav-menu">
                 <a href="#features" class="nav-link">Features</a>
+                <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#download" class="nav-cta">Get on App Store</a>
             </div>
         </div>
@@ -64,10 +65,6 @@
                 <div class="hero-text-section">
                     <h1 class="hero-title">Your projects.<br>Always visible.</h1>
                     <p class="hero-subtitle">Lightning fast project access for developers. Open any project instantly with keyboard shortcuts.</p>
-                    <div class="hero-actions">
-                        <a href="https://apps.apple.com/app/123repo" class="hero-button primary" target="_blank">Get on App Store</a>
-                        <a href="#features" class="hero-button secondary">See all features</a>
-                    </div>
                 </div>
                 <img src="widget-project-list.png" alt="123Repo Widget" class="hero-widget-image">
             </div>
@@ -78,130 +75,122 @@
     <section class="feature-grid" id="features">
         <div class="grid-container">
             
-            <!-- Primary Feature - Lightning Access -->
-            <div class="feature-card primary-feature">
-                <div class="feature-content">
-                    <div class="feature-text">
-                        <h2 class="feature-title">Lightning fast access</h2>
-                        <p class="feature-description">Press your chosen modifier key + any number to instantly open your Xcode projects and workspaces. Perfect for iOS, macOS, and multi-target development workflows.</p>
-                        <div class="feature-demo">
-                            <div class="demo-sequence">
-                                <div class="demo-step">
-                                    <div class="demo-keys">
-                                        <span class="demo-key">⌃</span>
-                                        <span class="demo-key">⌥</span>
-                                        <span class="demo-plus">+</span>
-                                        <span class="demo-key">1</span>
+            <!-- Combined Carousel -->
+            <div class="combined-carousel-section">
+                <div class="combined-carousel-container">
+                    <div class="combined-carousel-track">
+                        <div class="combined-carousel-item wide-item">
+                            <div class="feature-card primary-feature">
+                                <div class="feature-content">
+                                    <div class="feature-text">
+                                        <h2 class="feature-title">Lightning fast access</h2>
+                                        <p class="feature-description">Open any project instantly with keyboard shortcuts.</p>
+                                        <div class="feature-demo">
+                                            <div class="demo-sequence">
+                                                <div class="demo-step">
+                                                    <div class="demo-keys">
+                                                        <span class="demo-key">⌃</span>
+                                                        <span class="demo-key">⌥</span>
+                                                        <span class="demo-plus">+</span>
+                                                        <span class="demo-key">1</span>
+                                                    </div>
+                                                    <span class="demo-arrow">→</span>
+                                                    <span class="demo-result"><span class="app-name">123Repo</span> opens</span>
+                                                </div>
+                                                <div class="demo-step">
+                                                    <div class="demo-keys">
+                                                        <span class="demo-key">⌃</span>
+                                                        <span class="demo-key">⌥</span>
+                                                        <span class="demo-plus">+</span>
+                                                        <span class="demo-key">2</span>
+                                                    </div>
+                                                    <span class="demo-arrow">→</span>
+                                                    <span class="demo-result"><span class="app-name">Todo iOS app</span> opens</span>
+                                                </div>
+                                            </div>
+                                        </div>
                                     </div>
-                                    <span class="demo-arrow">→</span>
-                                    <span class="demo-result">123Repo opens</span>
-                                </div>
-                                <div class="demo-step">
-                                    <div class="demo-keys">
-                                        <span class="demo-key">⌃</span>
-                                        <span class="demo-key">⌥</span>
-                                        <span class="demo-plus">+</span>
-                                        <span class="demo-key">2</span>
+                                    <div class="feature-visual">
+                                        <img src="keyboard-shortcuts-configuration.png" alt="Repository shortcuts and hotkey configuration" class="feature-image">
                                     </div>
-                                    <span class="demo-arrow">→</span>
-                                    <span class="demo-result">Todo iOS app opens</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="combined-carousel-item">
+                            <div class="feature-card carousel-feature">
+                                <div class="carousel-content-single">
+                                    <div class="carousel-text">
+                                        <h3 class="carousel-title">Work on multiple branches</h3>
+                                        <p class="carousel-description">Keep different branches in separate folders and switch between them instantly.</p>
+                                    </div>
+                                    <div class="carousel-visual">
+                                        <img src="multi-branch-projects.png" alt="Branch management interface showing different project branches" class="carousel-image">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="combined-carousel-item">
+                            <div class="feature-card carousel-feature">
+                                <div class="carousel-content-single">
+                                    <div class="carousel-text">
+                                        <h3 class="carousel-title">Manage multiple projects</h3>
+                                        <p class="carousel-description">See all your active projects at a glance with clear visual indicators.</p>
+                                    </div>
+                                    <div class="carousel-visual">
+                                        <img src="multiple-active-projects.png" alt="Multi-project interface showing different active projects" class="carousel-image">
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="feature-visual">
-                        <img src="keyboard-shortcuts-configuration.png" alt="Repository shortcuts and hotkey configuration" class="feature-image">
-                    </div>
+                </div>
+
+                <div class="combined-carousel-dots">
+                    <button class="combined-dot active" data-index="0" aria-label="Go to slide 1"></button>
+                    <button class="combined-dot" data-index="1" aria-label="Go to slide 2"></button>
+                    <button class="combined-dot" data-index="2" aria-label="Go to slide 3"></button>
                 </div>
             </div>
 
-            <!-- New Features Row -->
-            <div class="feature-row compact-features">
-                <div class="feature-card branch-feature">
-                    <div class="feature-content">
-                        <div class="feature-text">
-                            <h3 class="feature-title">Branch isolation made simple</h3>
-                            <p class="feature-description">Clone the same repository to multiple folders, each on a different branch. 123Repo shows all branches so you can instantly switch between them.</p>
-                            <div class="feature-benefits">
-                                <div class="benefit-item">
-                                    <span class="benefit-text">Keep branches in separate folders</span>
-                                </div>
-                                <div class="benefit-item">
-                                    <span class="benefit-text">Jump between branches with shortcuts</span>
-                                </div>
+            <!-- Horizontal Scroll Carousel -->
+            <div class="horizontal-carousel-section">
+                <div class="horizontal-carousel-container">
+                    <div class="horizontal-carousel-track">
+                        <div class="horizontal-carousel-item">
+                            <div class="carousel-item-image">
+                                <img src="appearance-settings-panel.png" alt="Visual organization">
+                            </div>
+                            <div class="carousel-item-text">
+                                <p><strong>Your layout, your way.</strong> Focus on project names or branch names. Customize to match your workflow perfectly.</p>
                             </div>
                         </div>
-                        <div class="feature-visual">
-                            <img src="multi-branch-projects.png" alt="Branch management interface showing different project branches" class="feature-image compact">
-                        </div>
-                    </div>
-                </div>
 
-                <div class="feature-card project-feature">
-                    <div class="feature-content">
-                        <div class="feature-text">
-                            <h3 class="feature-title">Multi-project mastery</h3>
-                            <p class="feature-description">Working on multiple projects simultaneously? 123Repo organizes all your active projects with clear visual indicators.</p>
-                            <div class="feature-benefits">
-                                <div class="benefit-item">
-                                    <span class="benefit-text">Organize multiple active projects</span>
-                                </div>
-                                <div class="benefit-item">
-                                    <span class="benefit-text">Visual focus indicators</span>
-                                </div>
+                        <div class="horizontal-carousel-item">
+                            <div class="carousel-item-image">
+                                <img src="xcodeProjects.png" alt="Git integration and repository management">
+                            </div>
+                            <div class="carousel-item-text">
+                                <p><strong>Xcode projects and workspaces.</strong> Handle up to 9 repositories per workspace.</p>
                             </div>
                         </div>
-                        <div class="feature-visual">
-                            <img src="multiple-active-projects.png" alt="Multi-project interface showing different active projects" class="feature-image compact">
-                        </div>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Secondary Features Row -->
-            <div class="feature-row">
-                <div class="feature-card secondary-feature">
-                    <div class="feature-content">
-                        <div class="feature-visual">
-                            <img src="appearance-settings-panel.png" alt="Visual organization" class="feature-image">
-                        </div>
-                        <div class="feature-text">
-                            <h3 class="feature-title">Your way</h3>
-                            <p class="feature-description">Customize colors, display formats, and organization to match your workflow perfectly.</p>
+                        <div class="horizontal-carousel-item">
+                            <div class="carousel-item-image">
+                                <img src="notification-center-widget.png" alt="Desktop widget">
+                            </div>
+                            <div class="carousel-item-text">
+                                <p><strong>Native Mac widget.</strong> See all project numbers at a glance without opening the app.</p>
+                            </div>
                         </div>
                     </div>
                 </div>
 
-                <div class="feature-card secondary-feature">
-                    <div class="feature-content">
-                        <div class="feature-text">
-                            <h3 class="feature-title">Xcode workspace integration</h3>
-                            <p class="feature-description">Native support for .xcodeproj and .xcworkspace files with up to 9 repositories per workspace. See Git branches at a glance.</p>
-                        </div>
-                        <div class="feature-visual">
-                            <img src="main-app-interface.png" alt="Git integration and repository management" class="feature-image">
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Widget Feature -->
-            <div class="feature-card widget-feature">
-                <div class="feature-content">
-                    <div class="feature-text">
-                        <h2 class="feature-title">Never forget your shortcuts</h2>
-                        <p class="feature-description">Add the 123Repo widget to your desktop or notification center. See all project numbers at a glance without opening the app.</p>
-                        <ul class="feature-benefits">
-                            <li>Always visible on desktop</li>
-                            <li>Real-time project status</li>
-                            <li>Native macOS integration</li>
-                        </ul>
-                    </div>
-                    <div class="feature-visual">
-                        <div class="widget-showcase">
-                            <img src="notification-center-widget.png" alt="Desktop widget" class="widget-image">
-                        </div>
-                    </div>
+                <div class="horizontal-carousel-dots">
+                    <button class="horizontal-dot active" data-index="0" aria-label="Go to slide 1"></button>
+                    <button class="horizontal-dot" data-index="1" aria-label="Go to slide 2"></button>
+                    <button class="horizontal-dot" data-index="2" aria-label="Go to slide 3"></button>
                 </div>
             </div>
 
@@ -218,23 +207,56 @@
                                 <div class="step-icon">1</div>
                             </div>
                             <h4 class="step-title">Add Xcode projects</h4>
-                            <p class="step-description">Import .xcodeproj and .xcworkspace files with automatic shortcuts</p>
+                            <p class="step-description">Open folders containing .xcodeproj and .xcworkspace files.</p>
                         </div>
                         <div class="workflow-step">
                             <div class="step-visual">
                                 <div class="step-icon">2</div>
                             </div>
                             <h4 class="step-title">Customize</h4>
-                            <p class="step-description">Set colors and display preferences</p>
+                            <p class="step-description">Select color and number.</p>
                         </div>
                         <div class="workflow-step">
                             <div class="step-visual">
                                 <div class="step-icon">3</div>
                             </div>
                             <h4 class="step-title">Code faster</h4>
-                            <p class="step-description">Jump between iOS, macOS, and workspace projects instantly</p>
+                            <p class="step-description">Jump between projects/branches instantly. No need to stash changes.</p>
                         </div>
                     </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="faq-section" id="faq">
+        <div class="faq-container">
+            <h2 class="faq-main-title">Frequently Asked Questions</h2>
+            <div class="faq-grid">
+                <div class="faq-item">
+                    <h3 class="faq-question">What is 123Repo?</h3>
+                    <p class="faq-answer">123Repo is a Mac app for quick project launching. Assign numbers to your projects and open them instantly with keyboard shortcuts.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Do I need to memorize the shortcuts?</h3>
+                    <p class="faq-answer">No! A native macOS widget for your Notification Center or desktop shows all shortcut details at a glance.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">How does it help with multiple Git branches?</h3>
+                    <p class="faq-answer">Clone your project to different folders, one per branch. Switch between them instantly without having to stash changes.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Why use 123Repo over other shortcut solutions?</h3>
+                    <p class="faq-answer">123Repo is project-aware. It knows which branch you're on, shows all your active projects in one place, and includes a widget for quick reference. It's built specifically for developer workflows.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Does it work with other editors besides Xcode?</h3>
+                    <p class="faq-answer">Yes! While optimized for Xcode workflows, 123Repo works with any project type and can open projects in your favorite editor.</p>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">How many projects can I manage?</h3>
+                    <p class="faq-answer">Up to 9 with quick keyboard shortcuts — 9 projects, 9 branches, or any combination you need.</p>
                 </div>
             </div>
         </div>
@@ -247,18 +269,8 @@
                 <h2 class="download-title">Get 123Repo</h2>
                 <p class="download-subtitle">Transform your development workflow today</p>
                 <div class="download-actions">
-                    <a href="https://apps.apple.com/app/123repo" class="download-button" target="_blank">
-                        <div class="download-main">
-                            <span class="download-text">Get on Mac App Store</span>
-                            <span class="download-icon">
-                                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
-                                    <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
-                                </svg>
-                            </span>
-                        </div>
-                        <div class="download-details">
-                            <span class="download-req">macOS 11.0+</span>
-                        </div>
+                    <a href="https://apps.apple.com/app/123repo" target="_blank">
+                        <img src="badge-download-on-the-mac-app-store.svg" alt="Download on the Mac App Store" style="height: 60px;">
                     </a>
                 </div>
             </div>
@@ -278,7 +290,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p class="footer-copyright">© 2024 123Repo. All rights reserved.</p>
+                <p class="footer-copyright">© 2025 123Repo. All rights reserved.</p>
             </div>
         </div>
     </footer>

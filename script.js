@@ -18,6 +18,8 @@ class LandingPageController {
         this.setupKeyboardNavigation();
         this.setupPerformanceOptimizations();
         this.setupAccessibility();
+        this.setupHorizontalCarousel();
+        this.setupCombinedCarousel();
     }
 
     // Theme toggle functionality
@@ -452,6 +454,210 @@ class LandingPageController {
             }
         });
     }
+
+    // Carousel with auto-rotation
+    setupCarousel() {
+        const slides = document.querySelectorAll('.carousel-slide');
+        const dots = document.querySelectorAll('.pagination-dot');
+
+        if (slides.length === 0 || dots.length === 0) return;
+
+        let currentSlide = 0;
+        let autoRotateInterval = null;
+
+        const goToSlide = (index) => {
+            // Remove active class from all slides and dots
+            slides.forEach(slide => slide.classList.remove('active'));
+            dots.forEach(dot => dot.classList.remove('active'));
+
+            // Add active class to target slide and dot
+            slides[index].classList.add('active');
+            dots[index].classList.add('active');
+
+            currentSlide = index;
+        };
+
+        const nextSlide = () => {
+            const next = (currentSlide + 1) % slides.length;
+            goToSlide(next);
+        };
+
+        // Start auto-rotation (5 seconds per slide)
+        const startAutoRotate = () => {
+            autoRotateInterval = setInterval(nextSlide, 5000);
+        };
+
+        const stopAutoRotate = () => {
+            if (autoRotateInterval) {
+                clearInterval(autoRotateInterval);
+                autoRotateInterval = null;
+            }
+        };
+
+        // Click handlers for pagination dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                goToSlide(index);
+                stopAutoRotate();
+                // Restart auto-rotation after user interaction
+                setTimeout(startAutoRotate, 8000);
+            });
+        });
+
+        // Pause auto-rotation on hover
+        const carouselContainer = document.querySelector('.carousel-container');
+        if (carouselContainer) {
+            carouselContainer.addEventListener('mouseenter', stopAutoRotate);
+            carouselContainer.addEventListener('mouseleave', startAutoRotate);
+        }
+
+        // Start auto-rotation
+        startAutoRotate();
+    }
+
+    // Horizontal Carousel
+    setupHorizontalCarousel() {
+        const container = document.querySelector('.horizontal-carousel-container');
+        const track = document.querySelector('.horizontal-carousel-track');
+        const items = document.querySelectorAll('.horizontal-carousel-item');
+        const dotsContainer = document.querySelector('.horizontal-carousel-dots');
+        const dots = document.querySelectorAll('.horizontal-dot');
+
+        if (!container || items.length === 0 || dots.length === 0) return;
+
+        let currentIndex = 0;
+
+        // Check if scrolling is needed
+        const checkScrollNeeded = () => {
+            const isScrollable = container.scrollWidth > container.clientWidth;
+            if (dotsContainer) {
+                dotsContainer.style.display = isScrollable ? 'flex' : 'none';
+            }
+        };
+
+        const updateActiveDot = (index) => {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        };
+
+        const scrollToItem = (index) => {
+            const item = items[index];
+            if (item) {
+                const scrollLeft = item.offsetLeft - container.offsetLeft;
+                container.scrollTo({
+                    left: scrollLeft,
+                    behavior: 'smooth'
+                });
+                currentIndex = index;
+                updateActiveDot(index);
+            }
+        };
+
+        // Click handlers for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                scrollToItem(index);
+            });
+        });
+
+        // Update dots on scroll
+        let scrollTimeout;
+        container.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const containerRect = container.getBoundingClientRect();
+                const containerCenter = containerRect.left + containerRect.width / 2;
+
+                let closestIndex = 0;
+                let closestDistance = Infinity;
+
+                items.forEach((item, index) => {
+                    const itemRect = item.getBoundingClientRect();
+                    const itemCenter = itemRect.left + itemRect.width / 2;
+                    const distance = Math.abs(containerCenter - itemCenter);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+
+                if (closestIndex !== currentIndex) {
+                    currentIndex = closestIndex;
+                    updateActiveDot(currentIndex);
+                }
+            }, 100);
+        });
+
+        // Check on load and resize
+        checkScrollNeeded();
+        window.addEventListener('resize', checkScrollNeeded);
+    }
+
+    // Combined Carousel
+    setupCombinedCarousel() {
+        const container = document.querySelector('.combined-carousel-container');
+        const items = document.querySelectorAll('.combined-carousel-item');
+        const dots = document.querySelectorAll('.combined-dot');
+
+        if (!container || items.length === 0 || dots.length === 0) return;
+
+        let currentIndex = 0;
+
+        const updateActiveDot = (index) => {
+            dots.forEach(dot => dot.classList.remove('active'));
+            dots[index].classList.add('active');
+        };
+
+        const scrollToItem = (index) => {
+            const item = items[index];
+            if (item) {
+                const scrollLeft = item.offsetLeft - container.offsetLeft;
+                container.scrollTo({
+                    left: scrollLeft,
+                    behavior: 'smooth'
+                });
+                currentIndex = index;
+                updateActiveDot(index);
+            }
+        };
+
+        // Click handlers for dots
+        dots.forEach((dot, index) => {
+            dot.addEventListener('click', () => {
+                scrollToItem(index);
+            });
+        });
+
+        // Update dots on scroll
+        let scrollTimeout;
+        container.addEventListener('scroll', () => {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                const containerRect = container.getBoundingClientRect();
+                const containerCenter = containerRect.left + containerRect.width / 2;
+
+                let closestIndex = 0;
+                let closestDistance = Infinity;
+
+                items.forEach((item, index) => {
+                    const itemRect = item.getBoundingClientRect();
+                    const itemCenter = itemRect.left + itemRect.width / 2;
+                    const distance = Math.abs(containerCenter - itemCenter);
+
+                    if (distance < closestDistance) {
+                        closestDistance = distance;
+                        closestIndex = index;
+                    }
+                });
+
+                if (closestIndex !== currentIndex) {
+                    currentIndex = closestIndex;
+                    updateActiveDot(currentIndex);
+                }
+            }, 100);
+        });
+    }
 }
 
 // Advanced scroll effects
@@ -462,25 +668,7 @@ class ScrollEffects {
     }
 
     setupScrollProgress() {
-        // Create scroll progress indicator
-        const progressBar = document.createElement('div');
-        progressBar.className = 'scroll-progress';
-        progressBar.style.cssText = `
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 0%;
-            height: 2px;
-            background: linear-gradient(90deg, #007AFF, #5856D6);
-            z-index: 1001;
-            transition: width 0.1s ease;
-        `;
-        document.body.appendChild(progressBar);
-
-        window.addEventListener('scroll', () => {
-            const scrollPercent = (window.scrollY / (document.documentElement.scrollHeight - window.innerHeight)) * 100;
-            progressBar.style.width = `${Math.min(scrollPercent, 100)}%`;
-        }, { passive: true });
+        // Scroll progress disabled
     }
 
     setupScrollSnap() {

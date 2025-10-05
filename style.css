@@ -808,6 +808,7 @@ body {
     scrollbar-width: none;
     margin: 0 calc(-1 * var(--container-padding));
     padding: 0 var(--container-padding);
+    scroll-snap-type: x mandatory;
 }
 
 .combined-carousel-container::-webkit-scrollbar {
@@ -824,6 +825,7 @@ body {
 .combined-carousel-item {
     width: 368px;
     height: 400px;
+    scroll-snap-align: start;
 }
 
 .combined-carousel-item.wide-item {
@@ -1343,6 +1345,7 @@ body {
     scrollbar-width: none;
     margin: 0 calc(-1 * var(--container-padding));
     padding: 0 var(--container-padding);
+    scroll-snap-type: x mandatory;
 }
 
 .horizontal-carousel-container::-webkit-scrollbar {
@@ -1361,6 +1364,7 @@ body {
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
+    scroll-snap-align: start;
 }
 
 .carousel-item-image {

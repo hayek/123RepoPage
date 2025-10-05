@@ -521,23 +521,35 @@ class LandingPageController {
         const track = document.querySelector('.horizontal-carousel-track');
         const items = document.querySelectorAll('.horizontal-carousel-item');
         const dotsContainer = document.querySelector('.horizontal-carousel-dots');
-        const dots = document.querySelectorAll('.horizontal-dot');
 
-        if (!container || items.length === 0 || dots.length === 0) return;
+        if (!container || items.length === 0 || !dotsContainer) return;
 
         let currentIndex = 0;
+        let dots = [];
+
+        // Create dots dynamically
+        const createDots = () => {
+            dotsContainer.innerHTML = '';
+            dots = [];
+            items.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('horizontal-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => scrollToItem(index));
+                dotsContainer.appendChild(dot);
+                dots.push(dot);
+            });
+        };
 
         // Check if scrolling is needed
         const checkScrollNeeded = () => {
             const isScrollable = container.scrollWidth > container.clientWidth;
-            if (dotsContainer) {
-                dotsContainer.style.display = isScrollable ? 'flex' : 'none';
-            }
+            dotsContainer.style.display = isScrollable ? 'flex' : 'none';
         };
 
         const updateActiveDot = (index) => {
             dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
+            if (dots[index]) dots[index].classList.add('active');
         };
 
         const scrollToItem = (index) => {
@@ -552,13 +564,6 @@ class LandingPageController {
                 updateActiveDot(index);
             }
         };
-
-        // Click handlers for dots
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                scrollToItem(index);
-            });
-        });
 
         // Update dots on scroll
         let scrollTimeout;
@@ -589,7 +594,8 @@ class LandingPageController {
             }, 100);
         });
 
-        // Check on load and resize
+        // Initialize
+        createDots();
         checkScrollNeeded();
         window.addEventListener('resize', checkScrollNeeded);
     }
@@ -598,15 +604,36 @@ class LandingPageController {
     setupCombinedCarousel() {
         const container = document.querySelector('.combined-carousel-container');
         const items = document.querySelectorAll('.combined-carousel-item');
-        const dots = document.querySelectorAll('.combined-dot');
+        const dotsContainer = document.querySelector('.combined-carousel-dots');
 
-        if (!container || items.length === 0 || dots.length === 0) return;
+        if (!container || items.length === 0 || !dotsContainer) return;
 
         let currentIndex = 0;
+        let dots = [];
+
+        // Create dots dynamically
+        const createDots = () => {
+            dotsContainer.innerHTML = '';
+            dots = [];
+            items.forEach((_, index) => {
+                const dot = document.createElement('button');
+                dot.classList.add('combined-dot');
+                if (index === 0) dot.classList.add('active');
+                dot.addEventListener('click', () => scrollToItem(index));
+                dotsContainer.appendChild(dot);
+                dots.push(dot);
+            });
+        };
+
+        // Check if scrolling is needed
+        const checkScrollNeeded = () => {
+            const isScrollable = container.scrollWidth > container.clientWidth;
+            dotsContainer.style.display = isScrollable ? 'flex' : 'none';
+        };
 
         const updateActiveDot = (index) => {
             dots.forEach(dot => dot.classList.remove('active'));
-            dots[index].classList.add('active');
+            if (dots[index]) dots[index].classList.add('active');
         };
 
         const scrollToItem = (index) => {
@@ -621,13 +648,6 @@ class LandingPageController {
                 updateActiveDot(index);
             }
         };
-
-        // Click handlers for dots
-        dots.forEach((dot, index) => {
-            dot.addEventListener('click', () => {
-                scrollToItem(index);
-            });
-        });
 
         // Update dots on scroll
         let scrollTimeout;
@@ -657,6 +677,11 @@ class LandingPageController {
                 }
             }, 100);
         });
+
+        // Initialize
+        createDots();
+        checkScrollNeeded();
+        window.addEventListener('resize', checkScrollNeeded);
     }
 }
 

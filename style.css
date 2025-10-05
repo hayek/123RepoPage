@@ -337,6 +337,7 @@ body {
     width: 100%;
     height: auto;
     max-width: 500px;
+    object-fit: contain;
     opacity: 1;
     will-change: transform;
     backface-visibility: hidden;
@@ -449,11 +450,294 @@ body {
 
 
 @keyframes float {
-    0%, 100% { 
+    0%, 100% {
         transform: translateY(0px) translateZ(0);
     }
-    50% { 
+    50% {
         transform: translateY(-10px) translateZ(0);
+    }
+}
+
+/* Keyboard Shortcuts Section */
+.keyboard-shortcuts-section {
+    padding: var(--spacing-xl) 0;
+    background: rgb(245, 245, 247);
+    position: relative;
+}
+
+[data-theme="dark"] .keyboard-shortcuts-section {
+    background: var(--background-primary);
+}
+
+@media (prefers-color-scheme: dark) {
+    .keyboard-shortcuts-section {
+        background: var(--background-primary);
+    }
+}
+
+[data-theme="light"] .keyboard-shortcuts-section {
+    background: rgb(245, 245, 247);
+}
+
+.keyboard-shortcuts-container {
+    max-width: var(--container-xl);
+    margin: 0 auto;
+    padding: 0 var(--spacing-md);
+}
+
+.keyboard-shortcuts-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--spacing-xxl);
+    align-items: start;
+    background: transparent;
+    padding: var(--spacing-xxl);
+}
+
+.keyboard-shortcuts-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+}
+
+.keyboard-shortcuts-header {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.keyboard-shortcuts-title {
+    font-family: var(--font-system);
+    font-size: clamp(32px, 3.5vw, 48px);
+    line-height: 1.1;
+    font-weight: var(--font-weight-bold);
+    color: var(--text-primary);
+    letter-spacing: -0.02em;
+}
+
+.keyboard-shortcuts-description {
+    font-size: 18px;
+    line-height: 1.4;
+    color: var(--text-secondary);
+    max-width: 500px;
+}
+
+.keyboard-shortcuts-demo {
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+    margin-top: 0;
+}
+
+[data-theme="dark"] .keyboard-shortcuts-demo {
+    background: rgba(255, 255, 255, 0.05);
+}
+
+@media (prefers-color-scheme: dark) {
+    .keyboard-shortcuts-demo {
+        background: rgba(255, 255, 255, 0.05);
+    }
+}
+
+[data-theme="light"] .keyboard-shortcuts-demo {
+    background: rgba(0, 0, 0, 0.03);
+}
+
+.demo-sequence-large {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-md);
+}
+
+.demo-step-large {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+    font-size: 16px;
+    font-weight: var(--font-weight-medium);
+}
+
+.demo-keys-large {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.demo-key-large {
+    background: rgba(0, 0, 0, 0.05);
+    padding: 10px 14px;
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-bold);
+    font-family: 'SF Pro Display', system-ui, sans-serif;
+    font-size: 18px;
+    min-width: 40px;
+    text-align: center;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+[data-theme="dark"] .demo-key-large {
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: white;
+}
+
+@media (prefers-color-scheme: dark) {
+    .demo-key-large {
+        background: rgba(255, 255, 255, 0.15);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+    }
+}
+
+[data-theme="light"] .demo-key-large {
+    background: rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    color: var(--text-primary);
+}
+
+.demo-plus-large {
+    color: var(--text-secondary);
+    font-size: 16px;
+    margin: 0 4px;
+}
+
+.demo-arrow-large {
+    color: var(--text-secondary);
+    font-size: 24px;
+}
+
+.demo-result-large {
+    color: var(--text-primary);
+    font-size: 18px;
+}
+
+.app-name-large {
+    background: rgba(0, 122, 255, 0.1);
+    color: var(--primary-blue);
+    padding: 6px 14px;
+    border-radius: 16px;
+    font-weight: var(--font-weight-semibold);
+    display: inline-block;
+    font-size: 16px;
+}
+
+[data-theme="dark"] .app-name-large {
+    background: rgba(0, 122, 255, 0.2);
+    color: #5AC8FA;
+}
+
+@media (prefers-color-scheme: dark) {
+    .app-name-large {
+        background: rgba(0, 122, 255, 0.2);
+        color: #5AC8FA;
+    }
+}
+
+[data-theme="light"] .app-name-large {
+    background: rgba(0, 122, 255, 0.1);
+    color: var(--primary-blue);
+}
+
+.keyboard-shortcuts-visual {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keyboard-shortcuts-image {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    object-fit: contain;
+    border-radius: var(--radius-lg);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.2);
+}
+
+/* Responsive for keyboard shortcuts section */
+@media (max-width: 1024px) {
+    .keyboard-shortcuts-content {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-xl);
+        text-align: center;
+    }
+
+    .keyboard-shortcuts-text {
+        align-items: center;
+    }
+
+    .keyboard-shortcuts-title,
+    .keyboard-shortcuts-description {
+        text-align: center;
+    }
+
+    .keyboard-shortcuts-description {
+        max-width: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .keyboard-shortcuts-section {
+        padding: var(--spacing-xl) 0;
+    }
+
+    .keyboard-shortcuts-content {
+        padding: var(--spacing-xl) var(--spacing-lg);
+    }
+
+    .keyboard-shortcuts-title {
+        font-size: clamp(28px, 6vw, 40px);
+    }
+
+    .keyboard-shortcuts-description {
+        font-size: 18px;
+    }
+
+    .demo-sequence-large {
+        gap: var(--spacing-md);
+    }
+
+    .demo-step-large {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+
+    .demo-arrow-large {
+        transform: rotate(90deg);
+    }
+
+    .demo-key-large {
+        padding: 10px 14px;
+        font-size: 18px;
+        min-width: 40px;
+    }
+
+    .demo-result-large {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .keyboard-shortcuts-content {
+        padding: var(--spacing-lg);
+    }
+
+    .keyboard-shortcuts-demo {
+        padding: var(--spacing-lg);
+    }
+
+    .demo-key-large {
+        padding: 8px 12px;
+        font-size: 16px;
+        min-width: 36px;
+    }
+
+    .app-name-large {
+        font-size: 14px;
+        padding: 5px 12px;
     }
 }
 
@@ -520,10 +804,10 @@ body {
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    -ms-overflow-style: none;
+    margin: 0 calc(-1 * var(--container-padding));
+    padding: 0 var(--container-padding);
 }
 
 .combined-carousel-container::-webkit-scrollbar {
@@ -531,21 +815,19 @@ body {
 }
 
 .combined-carousel-track {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 368px);
     gap: var(--spacing-md);
-    padding: 0 var(--spacing-md);
+    width: max-content;
 }
 
 .combined-carousel-item {
-    flex: 0 0 300px;
-    max-width: 300px;
-    scroll-snap-align: start;
+    width: 368px;
     height: 400px;
 }
 
 .combined-carousel-item.wide-item {
-    flex: 0 0 750px;
-    max-width: 750px;
+    width: 368px;
     height: 400px;
 }
 
@@ -817,6 +1099,8 @@ body {
 
 .primary-feature .feature-image {
     width: 100%;
+    height: auto;
+    object-fit: contain;
     border-radius: var(--radius-lg);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
 }
@@ -856,6 +1140,8 @@ body {
 
 .secondary-feature .feature-image {
     width: 100%;
+    height: auto;
+    object-fit: contain;
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-small);
 }
@@ -955,6 +1241,8 @@ body {
 .widget-image {
     width: 100%;
     max-width: 400px;
+    height: auto;
+    object-fit: contain;
     border-radius: var(--radius-lg);
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
 }
@@ -1027,16 +1315,16 @@ body {
     display: flex;
     justify-content: center;
     align-items: flex-end;
-    margin-top: 0;
+    margin-top: auto;
     overflow: hidden;
     border-radius: var(--radius-lg);
+    flex: 1;
 }
 
 .carousel-image {
-    max-width: 100%;
-    height: 200px;
-    width: auto;
-    object-fit: cover;
+    width: 100%;
+    height: auto;
+    object-fit: contain;
     border-radius: var(--radius-lg);
 }
 
@@ -1051,10 +1339,10 @@ body {
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
-    scroll-snap-type: x mandatory;
     -webkit-overflow-scrolling: touch;
     scrollbar-width: none;
-    -ms-overflow-style: none;
+    margin: 0 calc(-1 * var(--container-padding));
+    padding: 0 var(--container-padding);
 }
 
 .horizontal-carousel-container::-webkit-scrollbar {
@@ -1062,26 +1350,29 @@ body {
 }
 
 .horizontal-carousel-track {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 368px);
     gap: var(--spacing-md);
-    padding: 0 var(--spacing-md);
+    width: max-content;
 }
 
 .horizontal-carousel-item {
-    flex: 0 0 calc(33.333% - var(--spacing-md));
-    scroll-snap-align: start;
+    width: 368px;
     display: flex;
     flex-direction: column;
     gap: var(--spacing-md);
 }
 
 .carousel-item-image {
-    width: 100%;
-    aspect-ratio: 1 / 1;
+    width: 368px;
+    height: 378px;
+    flex-shrink: 0;
     border-radius: var(--radius-xl);
     overflow: hidden;
     background: var(--background-elevated);
     box-shadow: var(--shadow-medium);
+    display: flex;
+    align-items: flex-end;
 }
 
 .carousel-item-image img {
@@ -1190,6 +1481,7 @@ body {
 .feature-image.compact {
     width: 100%;
     height: auto;
+    object-fit: contain;
     border-radius: var(--radius-md);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
     flex: 1;
@@ -1663,37 +1955,10 @@ body {
     }
 }
 
-@media (max-width: 1024px) {
-    .horizontal-carousel-item {
-        flex: 0 0 calc(50% - var(--spacing-md));
-    }
-
-    .combined-carousel-item {
-        flex: 0 0 calc(100% - var(--spacing-md) * 2);
-    }
-
-    .combined-carousel-item.wide-item {
-        flex: 0 0 750px;
-        max-width: 750px;
-    }
-}
 
 @media (max-width: 768px) {
-    .horizontal-carousel-item {
-        flex: 0 0 calc(100% - var(--spacing-md) * 2);
-    }
-
     .carousel-item-text p {
         font-size: 15px;
-    }
-
-    .combined-carousel-item {
-        flex: 0 0 calc(100% - var(--spacing-md) * 2);
-    }
-
-    .combined-carousel-item.wide-item {
-        flex: 0 0 750px;
-        max-width: 750px;
     }
 
     .demo-sequence {

@@ -316,6 +316,30 @@
         </div>
     </footer>
 
+    <script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/12.4.0/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyBVE96tM_ZDcFFSFA_Y5fGtbnXcZ-N_mCk",
+    authDomain: "repolandingpage.firebaseapp.com",
+    projectId: "repolandingpage",
+    storageBucket: "repolandingpage.firebasestorage.app",
+    messagingSenderId: "1072540920549",
+    appId: "1:1072540920549:web:c0664a183fa91381c5c20c",
+    measurementId: "G-Q3ZFBNCYZL"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
+
     <script src="script.js"></script>
 </body>
 </html>

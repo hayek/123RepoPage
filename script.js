@@ -20,6 +20,7 @@ class LandingPageController {
         this.setupAccessibility();
         this.setupHorizontalCarousel();
         this.setupCombinedCarousel();
+        this.setupAnalyticsTracking();
     }
 
     // Theme toggle functionality
@@ -682,6 +683,39 @@ class LandingPageController {
         createDots();
         checkScrollNeeded();
         window.addEventListener('resize', checkScrollNeeded);
+    }
+
+    // Firebase Analytics Tracking
+    setupAnalyticsTracking() {
+        // Track clicks on all App Store download/get buttons
+        const appStoreButtons = document.querySelectorAll('a[href*="apps.apple.com/us/app/123repo"]');
+
+        appStoreButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                // Check if Firebase Analytics is available
+                if (window.logAnalyticsEvent && window.firebaseAnalytics) {
+                    try {
+                        // Determine button location for better tracking
+                        let buttonLocation = 'unknown';
+                        if (button.classList.contains('nav-cta')) {
+                            buttonLocation = 'navigation';
+                        } else if (button.closest('.download-section')) {
+                            buttonLocation = 'download_section';
+                        }
+
+                        // Log the event to Firebase Analytics
+                        window.logAnalyticsEvent(window.firebaseAnalytics, 'app_store_click', {
+                            button_location: buttonLocation,
+                            timestamp: new Date().toISOString()
+                        });
+
+                        console.log('Analytics: App Store click tracked', buttonLocation);
+                    } catch (error) {
+                        console.error('Analytics tracking error:', error);
+                    }
+                }
+            });
+        });
     }
 }
 
